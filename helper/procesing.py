@@ -169,3 +169,12 @@ def create_excel(df,splan,pivoted,portfolio):
         pivoted.to_excel(writer1, sheet_name = 'In country')
         portfolio.to_excel(writer1, sheet_name = 'portfolio', index = False)
     print('Proceso Exitosamente finalizado')
+
+
+def NewDates(row,date = 'License Expiration Date',using = 'VoC SSC'):
+    try: 
+        new_date = row[date] - datetime.timedelta(days=row[using])
+        return new_date
+    except:
+        return 'Manual Review'
+        

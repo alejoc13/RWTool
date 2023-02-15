@@ -157,17 +157,14 @@ def Createportfoliostatus(df,filters):
     return df2
 
 
-def create_excel(df,splan,pivoted,portfolio):
+def create_excel(df):
     print('Generando Reporte')
     user = os.path.expanduser('~').split('\\')[2]
     date = datetime.datetime.now()
-    date = date.strftime(('%Y_%m_%d'))
-    path = f'Results\{user} {date} Regulatory info Tracking.xlsx'
-    with pd.ExcelWriter(path) as writer1:
-        df.to_excel(writer1, sheet_name = 'Regulatory Info', index = False)
-        splan.to_excel(writer1, sheet_name = 'Not Found', index = False)
-        pivoted.to_excel(writer1, sheet_name = 'In country')
-        portfolio.to_excel(writer1, sheet_name = 'portfolio', index = False)
+    date = date.strftime(('%Y-%m-%d_%H-%M-%S'))
+    path = f'Results\{user} {date} RW dates calculation.xlsx'
+    df.to_excel(path,index=False)
+
     print('Proceso Exitosamente finalizado')
 
 
@@ -177,4 +174,20 @@ def NewDates(row,date = 'License Expiration Date',using = 'VoC SSC'):
         return new_date
     except:
         return 'Manual Review'
+
+def defineDateParts(row,part = 'month'):
+    if part == 'month':
+        try:
+            a  = row['MoH Date']
+            mes = a.month
+            return mes
+        except:
+            return 'No Date'
+    if part == 'year':
+        try:
+            a  = row['MoH Date']
+            año = a.year
+            return año
+        except:
+            return 'No date'
         

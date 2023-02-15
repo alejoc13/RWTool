@@ -5,6 +5,6 @@ def createWorkSheet(token):
     rw = ld.ChargeRW(token)
     times = ld.chargeTimeLines()
     newCols = wf.rwCreation(rw,times)
-    newCols.to_excel('Results\prueba1.xlsx')
+    pr.create_excel(newCols)
     
     

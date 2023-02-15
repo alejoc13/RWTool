@@ -256,5 +256,17 @@ def ChargeRW(token):
     sheetName = 'SSC - PLC RW.xlsx'
     sheet_id = 4933334032770948
     getSheets(sheet_id,sheetName,token)
-    df = pd.read_excel('Documents\SSC - PLC RW.xlsx',date_parser=['License Expiration Date'],converters={'License Number':str})
-    print(df.columns)
+    columns = ['Id','RAS Name','Therapy Group','SubOU','Cluster','Country','Product/Project Name','Submission Type','License Owner','License Expiration Date',
+               'InSight Task (Link or Number)','Task Responsible GOU','Expected Submission Date','Legal Submission Date (if apply RW)',
+               'Expected Approval Date','Dossier Release to Local',]
+    print(f'Cargando {sheetName}')
+    df = pd.read_excel(f'Documents\{sheetName}',usecols=columns,converters={'License Number':str})
+    print(f'{sheetName} Cargado')
+    return df
+
+def chargeTimeLines():
+    print('Cargando TimeLines')
+    df = pd.read_excel('Documents\TimeLines.xlsx')
+    print('Timelines correctamente cargadas')
+    return df
+    

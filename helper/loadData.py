@@ -211,7 +211,7 @@ def load_SPlan(token):
     getReport(report_id,reportName,token)
     print('Cargando Submission Plan...')
     df_plan = pd.read_excel('Documents\Submission Plan - Full Report.xlsx',usecols=['Id','RAS Name','Project/Product Name','Status','Submission Type','Expected Submission Date','Approval Date','Therapy Group',
-                            'Expected Approval Date','Submission Date','Country','Cluster','License Number','RAC/RAN','SubOU','License Expiration Date'])
+                            'Expected Approval Date','Submission Date','Country','Cluster','License Number','RAC/RAN','SubOU','License Expiration Date'],date_parser=['License Expiration Date'])
     df_plan = df_plan.rename(columns={'Project/Product Name':'PRODUCT NAME','License Number':'REGISTRATION NUMBER','License Expiration Date':'EXPIRATION DATE'})
     print('Submission Plan cargado')
     return df_plan

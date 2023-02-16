@@ -6,5 +6,8 @@ def createWorkSheet(token):
     times = ld.chargeTimeLines()
     newCols = wf.rwCreation(rw,times)
     pr.create_excel(newCols)
-    
+
+def reviewCof(token):
+    sp,cof = pr. PrepareData(token)
+    pr.searchdiff(cof,sp)
     

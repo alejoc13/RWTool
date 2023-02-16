@@ -15,3 +15,7 @@ def rwCreation(rw,times):
     print('Creando columna MoH Year:')
     df['MoH Year'] = df.progress_apply(pr.defineDateParts,axis=1,part = 'year')
     return df
+
+def review(token):
+    sp,cof = pr.PrepareData(token)
+    pr.searchdiff(cof,sp)

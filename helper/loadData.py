@@ -270,3 +270,10 @@ def chargeTimeLines():
     print('Timelines correctamente cargadas')
     return df
     
+def loadCOF(FileName):
+    print('Cargando Documento COFEPRIS...')
+    path = f'Documents\{FileName}'
+    df = pd.read_excel(path,converters={'No. Registro':str},sheet_name = 'Procesos',date_parser=['Fecha expiración registro'])
+    df = df.rename(columns={'No. Registro': 'REGISTRATION NUMBER'})
+    print('Documento COFEPRIS cargado')
+    return df

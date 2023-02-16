@@ -26,7 +26,7 @@ if __name__ =='__main__':
         if option == 1:
             op.createWorkSheet(token)
         elif option == 2:
-            print('Estamos trabajando Para dejar funcional esta sección. Gracias por su paciencia')
+            op.reviewCof(token)
     
             
             

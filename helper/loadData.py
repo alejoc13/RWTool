@@ -257,7 +257,7 @@ def ChargeRW(token):
     sheet_id = 4933334032770948
     getSheets(sheet_id,sheetName,token)
     columns = ['Id','RAS Name','Therapy Group','SubOU','Cluster','Country','Status','Product/Project Name','Submission Type','License Owner','License Expiration Date',
-               'InSight Task (Link or Number)','Task Responsible GOU','Expected Submission Date','Legal Submission Date (if apply RW)',
+               'InSight Task (Link or Number)','Task Responsible GOU','Expected Submission Date',"Submission Date",'Legal Submission Date (if apply RW)',
                'Expected Approval Date','Dossier Release to Local']
     print(f'Cargando {sheetName}')
     df = pd.read_excel(f'Documents\{sheetName}',usecols=columns,converters={'License Number':str},date_parser=['License Expiration Date','Expected Submission Date'])
